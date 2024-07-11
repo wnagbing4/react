@@ -7,6 +7,11 @@ export default class App extends Component {
     // addTodo用于添加一个todo，接收的参数是todo对象
     addTodo=(todoObj)=>{
         console.log('App',todoObj)
+        const {todos} =this.state
+    //     追加todo
+        const newTodos=[todoObj,...todos]
+    //     更新状态
+        this.setState({todos:newTodos})
     }
     //初始化状态
     state={
