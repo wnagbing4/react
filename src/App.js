@@ -33,12 +33,22 @@ export default class App extends Component {
          })
          this.setState({todos:newTodos})
      }
+    //  删除todo方法
+    deleteTodo=(id)=>{
+    //     获取原来的todos
+        const {todos} =this.state
+    //删除指定id的todo对象
+      const newTodos= todos.filter((todoObj)=>{
+            return todoObj.id!==id
+        })
+        this.setState({todos:newTodos})
+    }
     render() {
         return (
             <div className='todo-container'>
             <div className='todo-wrap'>
                 <Header addTodo={this.addTodo}/>
-                <List todos={this.state.todos} updateTodo={this.updateTodo}/>
+                <List todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
                 <Footer/>
             </div>
             </div>
